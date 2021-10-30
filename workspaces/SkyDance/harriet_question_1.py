@@ -4,7 +4,7 @@
 import json
 
 # __json_path = r'./src/sample4.json'
-__json_path = '/Users/haarrii/workspaces/SkyDance/src/sample4.json'
+__json_path = './src/sample4.json'
 
 def _get_json_dict(*args, **kwargs):
     '''
