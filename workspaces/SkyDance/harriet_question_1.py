@@ -3,7 +3,6 @@
 
 import json
 
-# __json_path = r'./src/sample4.json'
 __json_path = './src/sample4.json'
 
 def _get_json_dict(*args, **kwargs):
@@ -30,7 +29,7 @@ def check_characters(input, *args, **kwargs):
     '''
 
     ### check if the input parameter is a string and if it reads the same backwars as forwards ###
-    if input == input[::-1]:
+    if input.lower() == input.lower()[::-1]:
         return True
     else:
         return False
@@ -57,12 +56,12 @@ def check_characters_from_json(*args, **kwargs):
 ### Test it ###
 
 ### uncomment the two lines below to check characters from json file ###
-# check_json = check_characters_from_json()
-# print(check_json)
+check_json = check_characters_from_json()
+print(check_json)
 
 ### uncomment the two lines below t check characters manualy ###
-check_manual = check_characters('madam')
-print(check_manual)
+# check_manual = check_characters('madam')
+# print(check_manual)
 
 
 
