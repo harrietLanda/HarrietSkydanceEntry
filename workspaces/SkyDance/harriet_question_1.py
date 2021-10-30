@@ -3,15 +3,69 @@
 
 import json
 
+# __json_path = r'./src/sample4.json'
+__json_path = '/Users/haarrii/workspaces/SkyDance/src/sample4.json'
 
-def _get_json_dict():
+def _get_json_dict(*args, **kwargs):
     '''
+    Read the json file and convert it to list.
+
+    Returns json data as list.
+    '''
+
+    with open(__json_path) as f:
+        data = json.load(f)
+
+    return data
+
+def check_characters(input, *args, **kwargs):
+    '''
+    Check if character buffer reads the same backwards as forwars.
 
     Parameters:
-    argument1 (string): Json file path
+    input (any type): the characters you want to check.
 
-    Returns json data as list
-
+    Returns True if it read the same backwards as forwards.
+    Return False if not.
     '''
 
-    
+    ### check if the input parameter is a string and if it reads the same backwars as forwards ###
+    if input == input[::-1]:
+        # print({} + ' is True'.format(str(character)))
+        return True
+    else:
+        # print({} + ' is False'.format(str(character)))
+        return False
+
+def check_characters_from_json(*args, **kwargs):
+    '''
+    Check if character buffer reads the same backwards as forwars.
+
+    Parameters:
+    input (any type): the characters you want to check.
+
+    Returns a list with True of False if the character buffer reads the same backwards as forwars.
+    '''
+
+    ### get the json data ###
+    data = _get_json_dict()
+    t = data.get('people')
+    characters = [people.get('firstName') for people in t]
+
+    ### map check_characters function with characters to get True or False ###
+    return map(check_characters, characters)
+
+
+### Test it ###
+
+### uncomment the two lines below to check characters from json file ###
+# check_json = check_characters_from_json()
+# print(check_json)
+
+### uncomment the two lines below t check characters manualy ###
+check_manual = check_characters('madam')
+print(check_manual)
+
+
+
+
