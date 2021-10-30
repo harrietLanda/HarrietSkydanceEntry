@@ -46,8 +46,7 @@ def check_characters_from_json(*args, **kwargs):
 
     ### get the json data ###
     data = _get_json_dict()
-    t = data.get('people')
-    characters = [people.get('firstName') for people in t]
+    characters = [people.get('firstName') for people in data.get('people')]
 
     ### map check_characters function with characters to get True or False ###
     return map(check_characters, characters)
