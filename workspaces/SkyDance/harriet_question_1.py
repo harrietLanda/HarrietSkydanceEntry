@@ -31,10 +31,8 @@ def check_characters(input, *args, **kwargs):
 
     ### check if the input parameter is a string and if it reads the same backwars as forwards ###
     if input == input[::-1]:
-        # print({} + ' is True'.format(str(character)))
         return True
     else:
-        # print({} + ' is False'.format(str(character)))
         return False
 
 def check_characters_from_json(*args, **kwargs):
