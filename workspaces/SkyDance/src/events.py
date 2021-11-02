@@ -75,6 +75,7 @@ def send_mail(to, subject, text, attach=None, *args, **kwargs):
         server.send_message(msg)
 
     logging.debug("Sent email to {}!".format(to))
+    print("Sent email to {}!".format(to))
 
 
 
