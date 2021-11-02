@@ -17,4 +17,4 @@ def receiveEvent(event_type, *args, **kwargs):
     events.get(event_type)(args, kwargs)
 
 
-receiveEvent("New Asset", name='mocodepavo', user='harriet', path='/Users/haarrii/Documents/skydance', text='esto es el textp')
+receiveEvent("New Asset", name='Char_LookDev', user='harriet.landa', path='/Users/haarrii/Documents/skydance', text='This is a text test', mail=1, )

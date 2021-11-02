@@ -1,9 +1,14 @@
 import os
 
 def _events():
+    """[summary]
+
+    Returns:
+        [type]: [description]
+    """
     EVENTS = {
             "New Asset": new_asset,
-            "Publish Asset" : pepito
+            "Publish Asset" : '...'
         }
     return EVENTS
 
@@ -21,7 +26,7 @@ def read_creds():
 
     return user, passw
 
-def send_mail(to, subject, text, attach, *args, **kwargs):
+def send_mail(to, subject, text, attach=None, *args, **kwargs):
     """Send mail function
 
     Args:
@@ -69,11 +74,17 @@ def send_mail(to, subject, text, attach, *args, **kwargs):
     logging.info("Sent email to {}!".format(to))
 
 
-def pepito():
-    print('working well')
-# send_mail('rpesca65@gmail.com', 'Jabon Lavadora', "comprar jabon lavadora", attach='/Users/haarrii/Desktop/code.png')
 
 def create_file(name, path, *args, **kwargs):
+    """[summary]
+
+    Args:
+        name ([type]): [description]
+        path ([type]): [description]
+
+    Returns:
+        [type]: [description]
+    """
     file = '{}/{}.txt'.format(path, name)
     with open(file, 'w') as f:
         pass
@@ -81,14 +92,23 @@ def create_file(name, path, *args, **kwargs):
     return file
 
 def write_file(file, text, *args, **kwargs):
+    """[summary]
+
+    Args:
+        file ([type]): [description]
+        text ([type]): [description]
+    """
     with open(file, 'w') as f:
         f.write(text)
     print('Text added to file: {}'.format(file))
 
-
-
-
 def new_asset(*args, **kwargs):
+    """[summary]
+
+    Args:
+        file ([type]): [description]
+        text ([type]): [description]
+    """
 
     try:
         name = args[1].get('name')
@@ -116,7 +136,14 @@ def new_asset(*args, **kwargs):
     try:
         mail = args[1].get('mail')
         if mail:
-            send_mail(to, subject, text, attach)
+            to = args[1].get('to')
+            subject = args[1].get('subject')
+            text = args[1].get('text')
+            attach = args[1].get('attach')
+            if attach:
+                send_mail(to, subject, text, attach)
+            else:
+                send_mail(to, subject, text)
     except SyntaxError:
         pass
 
