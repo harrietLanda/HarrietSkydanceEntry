@@ -83,11 +83,11 @@ def create_file(name, path, *args, **kwargs):
     """Create a txt file based on the arguments
 
     Args:
-        name ([type]): [description]
-        path ([type]): [description]
+        name (string): name of the file want to create
+        path (string): the file path
 
     Returns:
-        [type]: [description]
+        [String]: path of the created file
     """
     file = '{}/{}.txt'.format(path, name)
     if os.path.exists(path):
